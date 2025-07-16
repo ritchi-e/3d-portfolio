@@ -34,7 +34,7 @@ const config = {
   },
   social: {
     github: "https://github.com/ritchi-e",
-    linkedin: "https://linkedin.com/in/", // Add your LinkedIn profile link
+    linkedin: "https://in.linkedin.com/in/richard-david-786201172", // Updated LinkedIn profile link
     // Add more socials if needed
   },
   resume: "https://drive.google.com/drive/folders/1CrJhUSPk4zhum2tsp93WwQQlwQ3vzaQ7?usp=sharing",
