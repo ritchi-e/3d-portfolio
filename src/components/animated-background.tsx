@@ -86,6 +86,26 @@ const STATES = {
       },
     },
   },
+  education: {
+    desktop: {
+      scale: { x: 0.3, y: 0.3, z: 0.3 },
+      position: { x: 0, y: -40, z: 0 },
+      rotation: {
+        x: 0,
+        y: Math.PI / 6,
+        z: 0,
+      },
+    },
+    mobile: {
+      scale: { x: 0.18, y: 0.18, z: 0.18 },
+      position: { x: 0, y: 150, z: 0 },
+      rotation: {
+        x: Math.PI,
+        y: Math.PI / 3,
+        z: Math.PI,
+      },
+    },
+  },
   contact: {
     desktop: {
       scale: { x: 0.3, y: 0.3, z: 0.3 },
@@ -108,7 +128,7 @@ const STATES = {
   },
 };
 
-type Section = "hero" | "about" | "skills" | "projects" | "contact";
+type Section = "hero" | "about" | "skills" | "projects" | "education" | "contact";
 
 const AnimatedBackground = () => {
   const { isLoading, bypassLoading } = usePreloader();
@@ -312,9 +332,22 @@ const AnimatedBackground = () => {
       if (activeSection === "projects") {
         await sleep(300);
         bongoAnimation?.start();
+        // Hide the keyboard completely in projects section
+        if (kbd) {
+          kbd.visible = false;
+        }
+      } else if (activeSection === "education") {
+        // Hide the keyboard completely in education section
+        if (kbd) {
+          kbd.visible = false;
+        }
       } else {
         await sleep(200);
         bongoAnimation?.stop();
+        // Show the keyboard in other sections
+        if (kbd) {
+          kbd.visible = true;
+        }
       }
       if (activeSection === "contact") {
         await sleep(600);
@@ -500,6 +533,46 @@ const AnimatedBackground = () => {
     });
     gsap.timeline({
       scrollTrigger: {
+        trigger: "#education",
+        start: "top 70%",
+        end: "bottom bottom",
+        scrub: true,
+        // markers: true,
+        onEnter: () => {
+          setActiveSection("education");
+          gsap.to(kbd.scale, {
+            ...keyboardStates("education").scale,
+            duration: 1,
+          });
+          gsap.to(kbd.position, {
+            ...keyboardStates("education").position,
+            duration: 1,
+          });
+          gsap.to(kbd.rotation, {
+            ...keyboardStates("education").rotation,
+            duration: 1,
+          });
+        },
+        onLeaveBack: () => {
+          setActiveSection("projects");
+          gsap.to(kbd.scale, {
+            ...keyboardStates("projects").scale,
+            duration: 1,
+          });
+          gsap.to(kbd.position, {
+            ...keyboardStates("projects").position,
+            duration: 1,
+          });
+          gsap.to(kbd.rotation, {
+            ...keyboardStates("projects").rotation,
+            duration: 1,
+          });
+          // gsap.to(kbd.rotation, { x: 0, duration: 1 });
+        },
+      },
+    });
+    gsap.timeline({
+      scrollTrigger: {
         trigger: "#contact",
         start: "top 30%",
         end: "bottom bottom",
@@ -521,17 +594,17 @@ const AnimatedBackground = () => {
           });
         },
         onLeaveBack: () => {
-          setActiveSection("projects");
+          setActiveSection("education");
           gsap.to(kbd.scale, {
-            ...keyboardStates("projects").scale,
+            ...keyboardStates("education").scale,
             duration: 1,
           });
           gsap.to(kbd.position, {
-            ...keyboardStates("projects").position,
+            ...keyboardStates("education").position,
             duration: 1,
           });
           gsap.to(kbd.rotation, {
-            ...keyboardStates("projects").rotation,
+            ...keyboardStates("education").rotation,
             duration: 1,
           });
           // gsap.to(kbd.rotation, { x: 0, duration: 1 });

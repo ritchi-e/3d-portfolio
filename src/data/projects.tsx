@@ -298,7 +298,7 @@ const PROJECT_SKILLS = {
     title: "Django",
     bg: "black",
     fg: "white",
-    icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" />,
+    icon: <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/django/django-plain.svg" alt="Django" style={{ filter: 'brightness(0) invert(1)' }} />,
   },
   gcp: {
     title: "Google Cloud Platform",
@@ -324,6 +324,36 @@ const PROJECT_SKILLS = {
     fg: "white",
     icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R" />,
   },
+  redis: {
+    title: "Redis",
+    bg: "black",
+    fg: "white",
+    icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis" />,
+  },
+  threejs: {
+    title: "Three.js",
+    bg: "black",
+    fg: "white",
+    icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg" alt="Three.js" />,
+  },
+  whisper: {
+    title: "Whisper",
+    bg: "black",
+    fg: "white",
+    icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/openai/openai-original.svg" alt="Whisper" />,
+  },
+  chromadb: {
+    title: "ChromaDB",
+    bg: "black",
+    fg: "white",
+    icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vectoricons/vectoricons-original.svg" alt="ChromaDB" />,
+  },
+  pytorch: {
+    title: "PyTorch",
+    bg: "black",
+    fg: "white",
+    icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" />,
+  },
 };
 export type Project = {
   id: string;
@@ -338,14 +368,18 @@ export type Project = {
 };
 const projects: Project[] = [
   {
-    id: "medical-app",
+    id: "doctor-hiring-app",
     category: "Full-stack/mobile app",
-    title: "Medical Form App for Ayurvedic Procedures",
-    src: "/assets/projects-screenshots/medical_app/mediapp.png",
-    screenshots: ["/assets/projects-screenshots/medical_app/mediapp.png"],
+    title: "Doctor Hiring App",
+    src: "/assets/projects-screenshots/dr_locum/dr_locum_1.png",
+    screenshots: [
+      "/assets/projects-screenshots/dr_locum/dr_locum_1.png",
+      "/assets/projects-screenshots/dr_locum/dr_locum_2.png",
+      "/assets/projects-screenshots/dr_locum/dr_locum_3.png",
+    ],
     skills: {
-      frontend: [PROJECT_SKILLS.firebase],
-      backend: [PROJECT_SKILLS.python],
+      frontend: [PROJECT_SKILLS.flutter, PROJECT_SKILLS.firebase],
+      backend: [PROJECT_SKILLS.python, PROJECT_SKILLS.django, PROJECT_SKILLS.postgres, PROJECT_SKILLS.redis],
     },
     live: "",
     github: "",
@@ -353,38 +387,50 @@ const projects: Project[] = [
       return (
         <div>
           <TypographyP className="font-mono text-2xl text-center">
-            Medical Form App for Ayurvedic Procedures
+            Doctor Hiring App
           </TypographyP>
           <TypographyP className="font-mono ">
-            A cross-platform medical form app for Ayurvedic procedures. Built with Flutter, this full-stack application digitizes patient intake and documentation for the Virechana Karma detox process. Integrated with Firebase Auth and Firestore for secure user management and real-time data storage. Used Google Sheets API for efficient data export and sharing with practitioners. Features a modular form architecture supporting multiple therapies (e.g., Basti, Nasya, Swedana) with user-specific screens. State management via Riverpod, and navigation handled with GetX for reactive routing. Deployed on Android, iOS, Web, macOS, Windows, and Linux using Flutter&apos;s multiplatform capabilities.
+            A comprehensive mobile application connecting locum doctors with hospitals for temporary shifts. Built with Flutter frontend and Django REST API backend, featuring role-based access for doctors, HR representatives, and administrators. Includes QR code-based attendance tracking, document verification system, real-time job applications, and secure payment processing. The app supports multi-platform deployment with advanced features like real-time notifications, document management, and comprehensive admin panel for user verification and analytics.
           </TypographyP>
-          <SlideShow images={["/assets/projects-screenshots/medical_app/mediapp.png"]} />
+          <SlideShow images={[
+            "/assets/projects-screenshots/dr_locum/dr_locum_1.png",
+            "/assets/projects-screenshots/dr_locum/dr_locum_2.png",
+            "/assets/projects-screenshots/dr_locum/dr_locum_3.png",
+          ]} />
         </div>
       );
     },
   },
   {
-    id: "etl-pipeline",
-    category: "Data Engineering",
-    title: "ETL Pipeline with Data Fusion, Airflow, and BigQuery",
-    src: "/assets/projects-screenshots/etl_pipeline/etl.jpg",
-    screenshots: ["/assets/projects-screenshots/etl_pipeline/etl.jpg"],
+    id: "devcortex-website",
+    category: "Frontend/web development",
+    title: "DevCortex - Startup Website",
+    src: "/assets/projects-screenshots/devcortex/devcortex_1.png",
+    screenshots: [
+      "/assets/projects-screenshots/devcortex/devcortex_1.png",
+      "/assets/projects-screenshots/devcortex/devcortex_2.png",
+      "/assets/projects-screenshots/devcortex/devcortex_3.png",
+    ],
     skills: {
-      frontend: [PROJECT_SKILLS.python],
-      backend: [PROJECT_SKILLS.postgres, PROJECT_SKILLS.docker, PROJECT_SKILLS.gcp],
+      frontend: [PROJECT_SKILLS.react, PROJECT_SKILLS.threejs, PROJECT_SKILLS.tailwind, PROJECT_SKILLS.next],
+      backend: [],
     },
-    live: "",
-    github: "https://github.com/ritchi-e/ETL_Pipeline-SDE-Mini_Project",
+    live: "https://www.devcortex.in/",
+    github: "",
     get content() {
       return (
         <div>
           <TypographyP className="font-mono text-2xl text-center">
-            ETL Pipeline with Data Fusion, Airflow, and BigQuery
+            DevCortex - Startup Website
           </TypographyP>
           <TypographyP className="font-mono ">
-            Developed an ETL (Extract, Transform, Load) pipeline to process sales data from 1 lakh+ records, ensuring 100% data accuracy by masking sensitive information before loading into Google BigQuery for analysis.
+            A modern, responsive website built for DevCortex startup specializing in web development services. Features interactive 3D elements powered by Three.js, smooth animations, and a clean, professional design. Built with React and Next.js for optimal performance and SEO. The website showcases the company's services, portfolio, and team with an engaging user experience that combines traditional web design with cutting-edge 3D graphics and animations.
           </TypographyP>
-          <SlideShow images={["/assets/projects-screenshots/etl_pipeline/etl.jpg"]} />
+          <SlideShow images={[
+            "/assets/projects-screenshots/devcortex/devcortex_1.png",
+            "/assets/projects-screenshots/devcortex/devcortex_2.png",
+            "/assets/projects-screenshots/devcortex/devcortex_3.png",
+          ]} />
         </div>
       );
     },
@@ -416,6 +462,92 @@ const projects: Project[] = [
           <SlideShow images={[
             "/assets/projects-screenshots/nicu_tracker/nicu_1.png",
             "/assets/projects-screenshots/nicu_tracker/nicu_2.png",
+          ]} />
+        </div>
+      );
+    },
+  },
+  {
+    id: "etl-pipeline",
+    category: "Data Engineering",
+    title: "ETL Pipeline with Data Fusion, Airflow, and BigQuery",
+    src: "/assets/projects-screenshots/etl_pipeline/etl.jpg",
+    screenshots: ["/assets/projects-screenshots/etl_pipeline/etl.jpg"],
+    skills: {
+      frontend: [PROJECT_SKILLS.python],
+      backend: [PROJECT_SKILLS.postgres, PROJECT_SKILLS.docker, PROJECT_SKILLS.gcp],
+    },
+    live: "",
+    github: "https://github.com/ritchi-e/ETL_Pipeline-SDE-Mini_Project",
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono text-2xl text-center">
+            ETL Pipeline with Data Fusion, Airflow, and BigQuery
+          </TypographyP>
+          <TypographyP className="font-mono ">
+            Developed an ETL (Extract, Transform, Load) pipeline to process sales data from 1 lakh+ records, ensuring 100% data accuracy by masking sensitive information before loading into Google BigQuery for analysis.
+          </TypographyP>
+          <SlideShow images={["/assets/projects-screenshots/etl_pipeline/etl.jpg"]} />
+        </div>
+      );
+    },
+  },
+  {
+    id: "aiia-app",
+    category: "Full-stack/mobile app",
+    title: "AIIA-app - Ayurveda Medical Form Management System",
+    src: "/assets/projects-screenshots/medical_app/mediapp.png",
+    screenshots: ["/assets/projects-screenshots/medical_app/mediapp.png"],
+    skills: {
+      frontend: [PROJECT_SKILLS.flutter, PROJECT_SKILLS.firebase],
+      backend: [PROJECT_SKILLS.python],
+    },
+    live: "",
+    github: "",
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono text-2xl text-center">
+            AIIA-app - Ayurveda Medical Form Management System
+          </TypographyP>
+          <TypographyP className="font-mono ">
+            Comprehensive Flutter mobile application developed for All India Institute of Ayurveda University Delhi to digitally manage patient treatment forms and assessments for various Panchakarma therapies. Features comprehensive patient management with UHID tracking, multi-page treatment forms with progress tracking, and traditional Ayurvedic assessment criteria integration. Integrated with Firebase for secure data storage and Google Sheets API for efficient data export. Includes PDF report generation system supporting 7 different Ayurvedic treatment assessments. Built with Flutter for cross-platform deployment across Android, iOS, Web, macOS, Windows, and Linux.
+          </TypographyP>
+          <SlideShow images={["/assets/projects-screenshots/medical_app/mediapp.png"]} />
+        </div>
+      );
+    },
+  },
+  {
+    id: "edutech-pro",
+    category: "Full-stack/web platform",
+    title: "EduTech Pro - AI-Powered Educational Platform",
+    src: "/assets/projects-screenshots/edutech_pro/edutech_1.png",
+    screenshots: [
+      "/assets/projects-screenshots/edutech_pro/edutech_1.png",
+      "/assets/projects-screenshots/edutech_pro/edutech_2.png",
+      "/assets/projects-screenshots/edutech_pro/edutech_3.png",
+    ],
+    skills: {
+      frontend: [PROJECT_SKILLS.react, PROJECT_SKILLS.ts, PROJECT_SKILLS.tailwind],
+      backend: [PROJECT_SKILLS.python, PROJECT_SKILLS.django, PROJECT_SKILLS.openai, PROJECT_SKILLS.pytorch],
+    },
+    live: "",
+    github: "",
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono text-2xl text-center">
+            EduTech Pro - AI-Powered Educational Platform
+          </TypographyP>
+          <TypographyP className="font-mono ">
+            Comprehensive educational technology platform leveraging AI to enhance learning experiences with two main products: LearnHub and TestMaster for complete educational ecosystem. Features AI-powered video transcription and summarization using OpenAI Whisper, multi-product unified platform with role-based access control, and advanced learning analytics. Built with Django 5.2+ backend and React 18 frontend with TypeScript. Integrates OpenAI GPT for content generation, ChromaDB for vector storage, and PyTorch for machine learning capabilities. Provides unified authentication across products with comprehensive analytics and performance tracking.
+          </TypographyP>
+          <SlideShow images={[
+            "/assets/projects-screenshots/edutech_pro/edutech_1.png",
+            "/assets/projects-screenshots/edutech_pro/edutech_2.png",
+            "/assets/projects-screenshots/edutech_pro/edutech_3.png",
           ]} />
         </div>
       );

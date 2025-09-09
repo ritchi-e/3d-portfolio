@@ -43,9 +43,9 @@ const SlideShow = ({ images }: { images: string[] }) => {
                 <Image
                   src={image}
                   alt="screenshot"
-                  width={1000}
-                  height={1000}
-                  className="w-full rounded-lg h-auto"
+                  width={800}
+                  height={600}
+                  className="w-full max-w-md mx-auto rounded-lg h-auto object-contain"
                 />
                 <AnimatePresence>
                   {hovering && (
@@ -60,20 +60,14 @@ const SlideShow = ({ images }: { images: string[] }) => {
                   )}
                 </AnimatePresence>
               </DialogTrigger>
-              <DialogContent className="min-w-[90vw] h-[90vh] bg-transparent outline-none border-none p-0 m-0">
-                <DialogHeader className="w-full">
-                  {/* <DialogTitle>Are you absolutely sure?</DialogTitle> */}
-                  <DialogDescription>
-                    {image.split("/").pop()}
-                  </DialogDescription>
-                </DialogHeader>
+              <DialogContent className="min-w-[90vw] h-[90vh] bg-transparent outline-none border-none p-0 m-0 flex items-center justify-center">
                 <Image
                   src={image}
                   alt="screenshot"
-                  width={1000}
-                  height={1000}
-                  className="w-full"
-                  style={{ objectFit: "contain", width: "100vw" }}
+                  width={1200}
+                  height={800}
+                  className="max-w-full max-h-full object-contain"
+                  style={{ objectFit: "contain" }}
                 />
               </DialogContent>
             </Dialog>
