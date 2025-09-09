@@ -424,7 +424,7 @@ const projects: Project[] = [
             DevCortex - Startup Website
           </TypographyP>
           <TypographyP className="font-mono ">
-            A modern, responsive website built for DevCortex startup specializing in web development services. Features interactive 3D elements powered by Three.js, smooth animations, and a clean, professional design. Built with React and Next.js for optimal performance and SEO. The website showcases the company's services, portfolio, and team with an engaging user experience that combines traditional web design with cutting-edge 3D graphics and animations.
+            A modern, responsive website built for DevCortex startup specializing in web development services. Features interactive 3D elements powered by Three.js, smooth animations, and a clean, professional design. Built with React and Next.js for optimal performance and SEO. The website showcases the company&apos;s services, portfolio, and team with an engaging user experience that combines traditional web design with cutting-edge 3D graphics and animations.
           </TypographyP>
           <SlideShow images={[
             "/assets/projects-screenshots/devcortex/devcortex_1.png",

@@ -3,7 +3,7 @@ import { config } from "@/data/config";
 import { Resend } from "resend";
 import { z } from "zod";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY || "dummy-key-for-build");
 
 const Email = z.object({
   fullName: z.string().min(2, "Full name must be at least 2 characters"),
@@ -12,6 +12,12 @@ const Email = z.object({
 });
 export async function POST(req: Request) {
   try {
+    // Check if Resend API key is properly configured
+    if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY === "dummy-key-for-build") {
+      console.log("Resend API key not configured");
+      return Response.json({ error: "Email service not configured" }, { status: 503 });
+    }
+
     const body = await req.json();
     console.log("Received body:", body);
     const {
